@@ -1,0 +1,17 @@
+<div class="md-alert" ng-show="loginError"> Error in Login </div>
+<form role="form" name="LoginForm" class="inset">
+  <md-input-container>
+    <label> email </label>
+    <md-input type="email"  ng-model="user.email" placeholder="Your login email" required/>
+  </md-input-container>
+
+  <md-input-container>
+    <label> password </label>
+    <md-input type="password"  ng-model="user.password" placeholder="Your password" required/>
+  </md-input-container>
+
+  <div layout="row" layout-align="center">
+    <md-button type="submit" class="md-raised md-primary" ng-click="login()" ng-disabled="LoginForm.$invalid">Login</md-button>
+  </div>
+</form>
+

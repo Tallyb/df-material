@@ -1,0 +1,17 @@
+<div >
+    <!-- Page title -->
+    <h1>Email Password Reset</h1>
+
+    <!-- Forgot Password Form -->
+    <form name="reset-password-form" data-ng-submit="requestPasswordReset(reset)" >
+        <div class="form-group">
+            <input type="email" id="reset-password-email" name="reset-password-email" placeholder="Enter Email"
+                   data-ng-model="reset.email" class="form-control" required>
+        </div>
+
+        <input class="btn btn-default" id="submit-reset" type="submit" value="Send Reset Email">
+
+        <button class="btn btn-default pull-right" id="login-form-active" type="button"
+                data-ng-click="showLoginForm()">Show Login</button>
+    </form>
+</div>
