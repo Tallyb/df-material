@@ -11,27 +11,27 @@ angular.module('materialLogin', ['ngAnimate',
   'dfUserManagement',
   'auth'])
 
-  .constant('DSP_URL', 'https://dsp-tallyb.cloud.dreamfactory.com')
-  .constant('DSP_API_KEY', 'material-login')
+  .constant('DSP_URL', 'http://dsp-tallyb.cloud.dreamfactory.com/rest/')
+  .constant('DSP_API_KEY', '?app_name=material-login')
 
   .config (function appTheme ($mdThemingProvider){
   $mdThemingProvider.theme('default').primaryPalette('indigo').accentPalette ('amber');
   })
 
-  .config (function authConfig ($authProvider, DSP_URL){
+  .config (function authConfig ($authProvider, DSP_URL, DSP_API_KEY){
 
   $authProvider.httpInterceptor = true; // Add Authorization header to HTTP request
   $authProvider.loginOnSignup = true;
   $authProvider.loginRedirect = '/';
   $authProvider.logoutRedirect = '/';
   $authProvider.signupRedirect = '/login';
-  $authProvider.loginUrl = DSP_URL+'/rest/user/session';
-  $authProvider.signupUrl = DSP_URL+'/rest/user/register';
+  $authProvider.loginUrl = DSP_URL+'user/session'+DSP_API_KEY;
+  $authProvider.signupUrl = DSP_URL+'user/register'+DSP_API_KEY;
   $authProvider.loginRoute = '/login';
   $authProvider.signupRoute = '/signup';
   $authProvider.tokenRoot = false; // set the token parent element if the token is not the JSON root
-  $authProvider.tokenName = 'token';
-  $authProvider.tokenPrefix = 'satellizer'; // Local Storage name prefix
+  $authProvider.tokenName = 'session_id';
+  $authProvider.tokenPrefix = 'jwt'; // Local Storage name prefix
   $authProvider.unlinkUrl = '/auth/unlink/';
   $authProvider.unlinkMethod = 'get';
   $authProvider.authHeader = 'Authorization';
@@ -41,16 +41,16 @@ angular.module('materialLogin', ['ngAnimate',
 
   .config(['$httpProvider', 'DSP_API_KEY', function($httpProvider, DSP_API_KEY) {
 
-    $httpProvider.defaults.headers.common['X-DreamFactory-Application-Name'] = DSP_API_KEY;
+    //$httpProvider.defaults.headers.common['app-X-DreamFactory-Application-Name'] = DSP_API_KEY;
   }])
 
   .config (function (RestangularProvider, DSP_URL, DSP_API_KEY){
 
-  RestangularProvider.setBaseUrl(DSP_URL);
-  RestangularProvider.setDefaultRequestParams({'X-DreamFactory-Application-Name': DSP_API_KEY});
-  RestangularProvider.setErrorInterceptor(function(response, promise, $mdToast) {
-    $mdToast.showSimple('Error: ' + response.text);
-  });
+  //RestangularProvider.setBaseUrl(DSP_URL);
+  //RestangularProvider.setDefaultRequestParams({'X-DreamFactory-Application-Name': DSP_API_KEY});
+  //RestangularProvider.setErrorInterceptor(function(response, promise, $mdToast) {
+  //  $mdToast.showSimple('Error: ' + response.text);
+  //});
 })
 
   .run( function run ($rootScope, $state, $stateParams) {
