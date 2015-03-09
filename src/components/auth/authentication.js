@@ -1,6 +1,7 @@
 /**
  * Created by Tally on 27/02/2015.
- */
+ *//*
+
 
 (function (){
 
@@ -8,10 +9,11 @@
     'ui.router',
     'angular-storage',
     'angular-jwt',
-    'restangular'
+    'restangular',
+    'satellizer'
   ])
 
-    .controller ('AuthCtrl', function ($rootScope, $scope, AuthService, $state, store, $mdToast) {
+    .controller ('AuthCtrl', function ($rootScope, $scope, $authProvider, $state, store, $mdToast) {
     $rootScope.user = {};
     $scope.loginError = false;
     $scope.login = function() {
@@ -121,3 +123,4 @@
     });
 
 })();
+*/

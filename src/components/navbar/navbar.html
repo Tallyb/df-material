@@ -1,9 +1,0 @@
-<md-toolbar layout="row" layout-align="center center" ng-controller="NavbarCtrl">
-  <img src="assets/images/logo.png" >
-  <div flex> </div>
-  <div ng-show="user()"> {{user().display_name}} </div>
-  <md-button ng-show="!user()"> <a ui-serf="auth.login">Login</a>  </md-button>
-  <md-button ng-show="!user()"> <a ui-serf="auth.register">Register</a>  </md-button>
-  </div>
-
-</md-toolbar>
