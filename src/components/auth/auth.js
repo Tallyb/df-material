@@ -7,24 +7,25 @@ angular.module('auth', ['ngMessages',
       .state ('auth',{
         abstract: true,
         templateUrl: 'components/auth/partials/auth.html',
-        noAuth: true
       })
       .state('auth.login', {
         url: '/login',
         templateUrl: 'components/auth/partials/login.html',
-        controller: 'LoginCtrl'
+        controller: 'LoginCtrl',
+        noAuth: true
       })
       .state('auth.signup', {
         url: '/signup',
         templateUrl: 'components/auth/partials/signup.html',
-        controller: 'SignupCtrl'
+        controller: 'SignupCtrl',
+        noAuth: true
       })
       .state('auth.logout', {
         url: '/logout',
         template: null,
         controller: 'LogoutCtrl'
       })
-      .state('profile', {
+      .state('auth.profile', {
         url: '/profile',
         templateUrl: 'components/auth/partials/profile.html',
         controller: 'ProfileCtrl',
@@ -80,4 +81,7 @@ angular.module('auth', ['ngMessages',
       redirectUri: window.location.origin || window.location.protocol + '//' + window.location.host,
       authorizationEndpoint: 'https://foursquare.com/oauth2/authenticate'
     });
-  });
+  })
+
+
+;

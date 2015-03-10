@@ -37,9 +37,9 @@ angular.module('materialLogin', ['ngAnimate',
   $authProvider.authHeader = 'Authorization';
   $authProvider.withCredentials = true; // Send POST request with credentials
 
-  })
+})
 
-  .config(['$httpProvider', 'DSP_API_KEY', function($httpProvider, DSP_API_KEY) {
+  .config(['$httpProvider', 'DSP_API_KEY', function httpConfig ($httpProvider, DSP_API_KEY) {
 
     //$httpProvider.defaults.headers.common['app-X-DreamFactory-Application-Name'] = DSP_API_KEY;
   }])
@@ -53,15 +53,16 @@ angular.module('materialLogin', ['ngAnimate',
   //});
 })
 
-  .run( function run ($rootScope, $state, $stateParams) {
+  .run( function run ($rootScope, $state, $stateParams, $auth) {
 
     $rootScope.$on("$stateChangeStart", function (event, toState, toParams, fromState, fromParams) {
 
-      //// User isn’t authenticated and the page is not "open authorization"
-      //if (!toState.noAuth && !AuthService.isAuthenticated()) {
-      //  event.preventDefault();
-      //  $state.go('login');
-      //}
+      // User isn’t authenticated and the page is not "open authorization"
+
+      if (!toState.noAuth && !$auth.isAuthenticated()) {
+        event.preventDefault();
+        $state.go('auth.login');
+      }
     });
 
     $rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams){

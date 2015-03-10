@@ -8,12 +8,13 @@ angular.module ('materialLogin')
     .state('main', {
       url: '/',
       templateUrl: 'app/main/main.html',
-      controller: 'MainCtrl'
+      controller: 'MainCtrl',
+      noAuth: true
     })
 
     .state('home', {
-      url: '/',
-      template: 'Your App Starts Here',
+      url: '/home',
+      template: 'Your App Starts Here'
     })
 
 

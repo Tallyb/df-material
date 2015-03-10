@@ -1,5 +1,8 @@
-<div ng-if="isAuthenticated()" ui-sref="profile">{{user.display_name}}</div>
-<md-button ng-if="isAuthenticated()"> <a ui-sref="auth.logout">Logout</a>  </md-button>
-
-<md-button ng-if="!isAuthenticated()"> <a ui-sref="auth.login">Login</a>  </md-button>
-<md-button ng-if="!isAuthenticated()"> <a ui-sref="auth.signup">Signup</a>  </md-button>
+<div  ng-if="isAuthenticated()" layout="row" layout-align="end center">
+  <a class="md-button md-default-theme" ui-sref="auth.profile">{{user.display_name}} </a>
+  <a class="md-button md-default-theme" ui-sref="auth.logout"> Logout </a>
+</div>
+<div ng-if="!isAuthenticated()" layout="row" layout-align="end center">
+  <a class="md-button md-default-theme" ui-sref="auth.login"> Login </a>
+  <a class="md-button md-default-theme" ui-sref="auth.signup"> Signup </a>
+</div>
