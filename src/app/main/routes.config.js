@@ -5,12 +5,19 @@
 angular.module ('materialLogin')
 .config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
-    .state('home', {
+    .state('main', {
       url: '/',
       templateUrl: 'app/main/main.html',
       controller: 'MainCtrl'
     })
-    ;
+
+    .state('home', {
+      url: '/',
+      template: 'Your App Starts Here',
+    })
+
+
+  ;
     $urlRouterProvider.otherwise('/');
 
 })
