@@ -4,7 +4,7 @@ You get an application for open registration of users and accessing a todo sampl
 Angular material can be found here: https://material.angularjs.org/ 
 AND IT IS AWSOME! 
 
-#installation
+#Installation
 The scaffolding of the project is based on the gulp angular generator. For additional information go to https://github.com/Swiip/generator-gulp-angular
 
 
