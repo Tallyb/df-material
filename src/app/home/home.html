@@ -1,0 +1,14 @@
+<div layout="column">
+  <md-toolbar layout="row" layout-align="center center">
+    <img src="../../assets/images/logo.png" >
+    <div flex> </div>
+    <user-bar></user-bar>
+
+  </md-toolbar>
+  <div>
+    <ul>
+      <li ng-repeat="todo in todos"> {{todo.name}}</li>
+    </ul>
+  </div>
+</div>
+

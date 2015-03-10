@@ -22,9 +22,9 @@ angular.module('materialLogin', ['ngAnimate',
 
   $authProvider.httpInterceptor = true; // Add Authorization header to HTTP request
   $authProvider.loginOnSignup = true;
-  $authProvider.loginRedirect = '/';
+  $authProvider.loginRedirect = '/home';
   $authProvider.logoutRedirect = '/';
-  $authProvider.signupRedirect = '/login';
+  $authProvider.signupRedirect = '/home';
   $authProvider.loginUrl = DSP_URL+'user/session'+DSP_API_KEY;
   $authProvider.signupUrl = DSP_URL+'user/register'+DSP_API_KEY;
   $authProvider.loginRoute = '/login';
@@ -34,7 +34,7 @@ angular.module('materialLogin', ['ngAnimate',
   $authProvider.tokenPrefix = 'jwt'; // Local Storage name prefix
   $authProvider.unlinkUrl = '/auth/unlink/';
   $authProvider.unlinkMethod = 'get';
-  $authProvider.authHeader = 'Authorization';
+  $authProvider.authHeader = 'X-DreamFactory-Session-Token ';
   $authProvider.withCredentials = true; // Send POST request with credentials
 
 })

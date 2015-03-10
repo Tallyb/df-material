@@ -1,3 +1,4 @@
+<h2>Login</h2>
 <form role="form" name="LoginForm" method="post" ng-submit="login()" class="inset">
   <md-input-container>
     <label> email </label>
@@ -12,7 +13,7 @@
   <div layout="row" layout-align="center">
     <md-button type="submit" class="md-raised md-primary"  ng-disabled="LoginForm.$invalid">Login</md-button>
   </div>
-  <p> <small>Don't have an account yet? <a ui-sref="signup">Sign up</a></small> </p>
+  <p> <small>Don't have an account yet? <a ui-sref="auth.signup">Sign up</a></small> </p>
   <p class="text-center">
     <a href="#">Forgot your password?</a>
   </p>

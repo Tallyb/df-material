@@ -14,14 +14,13 @@ angular.module ('materialLogin')
 
     .state('home', {
       url: '/home',
-      template: 'Your App Starts Here'
+      template: 'Your App Starts Here',
+      controller: 'homeCtrl'
     })
-
-
   ;
     $urlRouterProvider.otherwise('/');
 
-})
+  })
 
 
 ;
