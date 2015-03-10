@@ -14,7 +14,7 @@ angular.module ('materialLogin')
 
     .state('home', {
       url: '/home',
-      template: 'Your App Starts Here',
+      templateUrl: 'app/home/home.html',
       controller: 'homeCtrl'
     })
   ;

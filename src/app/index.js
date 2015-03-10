@@ -34,12 +34,12 @@ angular.module('materialLogin', ['ngAnimate',
   $authProvider.tokenPrefix = 'jwt'; // Local Storage name prefix
   $authProvider.unlinkUrl = '/auth/unlink/';
   $authProvider.unlinkMethod = 'get';
-  $authProvider.authHeader = 'X-DreamFactory-Session-Token ';
+  $authProvider.authHeader = 'X-DreamFactory-session-token';
   $authProvider.withCredentials = true; // Send POST request with credentials
 
 })
 
-  .config(['$httpProvider', 'DSP_API_KEY', function httpConfig ($httpProvider, DSP_API_KEY) {
+  .config(['$httpProvider', 'DSP_API_KEY', function ($httpProvider, DSP_API_KEY) {
 
     //$httpProvider.defaults.headers.common['app-X-DreamFactory-Application-Name'] = DSP_API_KEY;
   }])
