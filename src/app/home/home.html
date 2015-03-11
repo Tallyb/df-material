@@ -1,14 +1,40 @@
-<div layout="column">
+<div layout="column" flex>
   <md-toolbar layout="row" layout-align="center center">
     <img src="../../assets/images/logo.png" >
     <div flex> </div>
     <user-bar></user-bar>
-
   </md-toolbar>
-  <div>
-    <ul>
-      <li ng-repeat="todo in todos"> {{todo.name}}</li>
-    </ul>
+  <nav mfb-menu position="br" effect="zoomin" label="hover here"
+       active-icon="mdi mdi-plus" resting-icon="mdi mdi-pencil"
+       toggling-method="click">
+    <a mfb-button icon="paper-airplane" label="menu item"></a>
+  </nav>
+
+  <div layout="row" flex>
+    <md-sidenav>
+    </md-sidenav>
+    <md-content>
+      <md-list>
+        <md-item ng-repeat="item in todos">
+          <md-item-content>
+            <div class="md-tile-left">
+              <img ng-src="{{item.face}}" class="face" alt="{{item.who}}">
+            </div>
+            <div class="md-tile-content">
+              <h3>{{item.name}}</h3>
+              <p>
+                {{item.name}}
+              </p>
+            </div>
+          </md-item-content>
+        </md-item>
+      </md-list>
+    </md-content>
+
+
+  </div>
+
+
   </div>
 </div>
 

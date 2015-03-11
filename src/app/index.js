@@ -9,7 +9,9 @@ angular.module('materialLogin', ['ngAnimate',
   'ngMaterial',
   'ngMessages',
   'dfUserManagement',
-  'auth'])
+  'auth',
+  'ng-mfb'
+])
 
   .constant('DSP_URL', 'http://dsp-tallyb.cloud.dreamfactory.com/rest/')
   .constant('DSP_API_KEY', '?app_name=material-login')
@@ -24,11 +26,11 @@ angular.module('materialLogin', ['ngAnimate',
   $authProvider.loginOnSignup = true;
   $authProvider.loginRedirect = '/home';
   $authProvider.logoutRedirect = '/';
-  $authProvider.signupRedirect = '/home';
+  $authProvider.signupRedirect = '/login';
   $authProvider.loginUrl = DSP_URL+'user/session'+DSP_API_KEY;
   $authProvider.signupUrl = DSP_URL+'user/register'+DSP_API_KEY;
   $authProvider.loginRoute = '/login';
-  $authProvider.signupRoute = '/signup';
+  $authProvider.signupRoute = '/confirm';
   $authProvider.tokenRoot = false; // set the token parent element if the token is not the JSON root
   $authProvider.tokenName = 'session_id';
   $authProvider.tokenPrefix = 'jwt'; // Local Storage name prefix

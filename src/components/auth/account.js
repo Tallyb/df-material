@@ -18,6 +18,7 @@ angular.module('auth')
   })
   .factory('Account', function($http, DSP_URL, DSP_API_KEY, $auth, MLStore) {
     var profileUrl = DSP_URL+'user/profile'+DSP_API_KEY;
+    var registerUrl = DSP_URL+'user/register'+DSP_API_KEY
 
     return {
       setUser: function (user) {
@@ -28,6 +29,12 @@ angular.module('auth')
         }
       },
 
+      signup: function (user) {
+        return $http.post(registerUrl, user).then(function (response) {
+          return response.data;
+        });
+      },
+
       getUser: function (){
         return MLStore.get('user');
       },
@@ -35,13 +42,14 @@ angular.module('auth')
       getProfile: function() {
         return $http.get(profileUrl);
       },
-      updateProfile: function(profileData) {
 
+      updateProfile: function(profileData) {
         return $http.put(profileUrl, profileData).then (function (response){
           MLStore.set ('user', response);
           return response;
         });
-
       }
+
+
     };
   });

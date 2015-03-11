@@ -1,0 +1,44 @@
+<h2>Registration Confirmation</h2>
+<form method="post" ng-submit="confirm()" name="confirmForm" class="inset">
+
+
+  <md-input-container>
+    <label> Email </label>
+    <input type="email" id="email" name="email" ng-model="email" placeholder="Email" required
+           ng-pattern="/^[A-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/">
+    <div class="help-block text-danger" ng-if="confirmForm.email.$dirty" ng-messages="confirmForm.email.$error">
+      <div ng-message="required">Your email address is required.</div>
+      <div ng-message="pattern">Your email address is invalid.</div>
+    </div>
+  </md-input-container>
+
+
+  <md-input-container>
+    <label> Password </label>
+    <input password-strength  type="password" name="password" ng-model="password" placeholder="Password" required>
+    <div class="help-block text-danger" ng-if="confirmForm.password.$dirty" ng-messages="confirmForm.password.$error">
+      <div ng-message="required">Password is required.</div>
+    </div>
+  </md-input-container>
+
+  <md-input-container>
+    <label> Confirm password </label>
+    <input password-match="password" type="password" name="confirmPassword" ng-model="confirmPassword" placeholder="Confirm Password">
+    <div ng-if="confirmForm.confirmPassword.$dirty" ng-messages="confirmForm.confirmPassword.$error">
+      <div ng-message="compareTo">Password must match.</div>
+    </div>
+  </md-input-container>
+
+  <md-input-container>
+    <label> Registration code </label>
+    <input type="text" name="code" ng-model="code" placeholder="Registration code sent via email" required ng-disabled="!!code">
+    <div class="help-block text-danger" ng-if="confirmForm.code.$dirty" ng-messages="confirmForm.code.$error">
+      <div ng-message="required">Registration code is required.</div>
+    </div>
+  </md-input-container>
+
+  <md-button type="submit" ng-disabled="confirmForm.$invalid" class="md-button md-raised md-primary">Sign up</md-button>
+  <br/>
+
+  <p class="text-center text-muted">Already have an account? <a href="/#/login">Log in now</a></p>
+</form>

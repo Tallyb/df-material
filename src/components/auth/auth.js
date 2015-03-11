@@ -20,6 +20,14 @@ angular.module('auth', ['ngMessages',
         controller: 'SignupCtrl',
         noAuth: true
       })
+      .state('auth.confirm', {
+        url: '/confirm/:email/:code',
+        templateUrl: 'components/auth/partials/confirm.html',
+        controller: 'confirmCtrl',
+        noAuth: true
+      })
+
+
       .state('auth.logout', {
         url: '/logout',
         template: null,
